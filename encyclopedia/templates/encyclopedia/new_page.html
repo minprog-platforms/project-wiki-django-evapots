@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}    
+
+{% block title %}
+    Create new page
+{% endblock %}
+
+{% block body %}
+
+{% if messages %}
+{% for message in messages%}
+    <h3 style="color:red"> {{ message }} </h3>
+    {% endfor %}
+{% endif %}
+
+<h1> Create New Page </h1>
+ 
+<p> Write the content of the page in line with the <a href="https://www.markdownguide.org/cheat-sheet/"> markdown guidelines </a>! </p>
+<form action="{% url 'new_page' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
+
+{% endblock %}

@@ -28,11 +28,9 @@ In line with the workflow, the following HTML files need to be created:
 A new page can be added by the following steps:
 1. Clicking on *Create new page* in the sidebar
 2. At the *Page to create a new page*, enter the title of the page and add markdown content
-3. Hit the save button, whenever the entrys title does not yet exist (in `list_entries`) a new page is created (by `save_entry`)
+3. Hit the save button, whenever the entrys title does not yet exist in `list_entries` a new page is created by the `save_entry`-function
 
-Multiple other files and webpages should be updated whenever this procedure is finished.
-- the new entry should be included in the list of entries
-- thereby, the index page should be updated 
-- consequently, also the data underlying the 'search' and 'random' actions should be adjusted
-
-Question: what files should you change
+Multiple other files and webpages are updated instantly whenever this procedure is finished.
+- the new entry is added to the `list_entries` as it is saved by the `save_entry`-function
+- thereby, the index page is updated immediately 
+- also `search`-function and `random`-function incorporate the *new page* as these functions are based on `list_entries`

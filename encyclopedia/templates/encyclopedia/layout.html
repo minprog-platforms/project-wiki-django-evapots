@@ -4,26 +4,34 @@
 
 <html lang="en">
     <head>
-        <title>{% block title %}{% endblock %}</title>
+        <title>Wiki: {% block title %}{% endblock %}</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
     </head>
     <body>
         <div class="row">
             <div class="sidebar col-lg-2 col-md-3">
-                <h2>Wiki</h2>
-                <form>
-                    <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
+                <h1>Wiki</h1>
+                <hr> 
+                <p>
+                <form action="{% url 'search' %}" method="post">
+                    {% csrf_token %}
+                    {{ search_form }}
                 </form>
-                <div>
-                    <a href="{% url 'index' %}">Home</a>
+                </p>
+                <hr>
+                <div> <p>
+                    <a href="{% url 'index' %}">Home</a> </p>
                 </div>
-                <div>
-                    Create New Page
-                </div>
-                <div>
-                    Random Page
-                </div>
+                <hr>
+                <div> <p>
+                    <a class="btn btn-primary" href="{% url 'new_page' %}">Create New Page</a>
+                </p> </div>
+                <hr>
+                <div> <p>
+                    <a href ="{% url 'random' %}">Random Page</a>
+                </p> </div>
+                <hr>
                 {% block nav %}
                 {% endblock %}
             </div>
